@@ -27,7 +27,8 @@ jobs:
       - name: Checkmake
         shell: bash
         run: |
-          echo $PATH
+          echo %PATH%
+          ls /c/mingw64/bin/
           which make
       - name: Build binary
         run: bash tool/${{ matrix.script }}
