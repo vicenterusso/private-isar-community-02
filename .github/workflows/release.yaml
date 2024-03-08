@@ -25,6 +25,9 @@ jobs:
       - name: Set env
         run: echo "ISAR_VERSION=${{ github.ref_name }}" >> $GITHUB_ENV
       - name: Checkmake
-        run: which make
+        shell: bash
+        run: |
+          echo $PATH
+          which make
       - name: Build binary
         run: bash tool/${{ matrix.script }}
