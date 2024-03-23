@@ -9,12 +9,18 @@ jobs:
   verify_version:
     name: Verify version matches release
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        sdk: [3.0.0]
     steps:
-      - uses: actions/checkout@v3
-      - uses: dart-lang/setup-dart@v1
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ vars.FLUTTER_VERSION }}
       - name: Verify release version
         run: |
-          dart pub get
+          flutter pub get
           dart tool/verify_release_version.dart ${{ github.ref_name }}
         working-directory: packages/isar
 
@@ -56,7 +62,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Prepare Build
         uses: ./.github/actions/prepare-build
       - name: Set env
@@ -81,8 +87,10 @@ jobs:
     needs: build_binaries
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ vars.FLUTTER_VERSION }}
       - name: Build
         run: flutter build web --base-href /${{ github.ref_name }}/
         working-directory: packages/isar_inspector
@@ -90,7 +98,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: packages/isar_inspector/build/web
-          repository-name: isar/inspector
+          repository-name: isar-community/inspector
           token: ${{ secrets.TOKEN }}
           target-folder: ${{ github.ref_name }}
           clean: false
@@ -100,7 +108,7 @@ jobs:
   #   needs: build_inspector
   #   runs-on: ubuntu-latest
   #   steps:
-  #     - uses: actions/checkout@v3
+  #     - uses: actions/checkout@v4
   #     - uses: subosito/flutter-action@v2
   #     - name: pub get
   #       run: dart pub get
