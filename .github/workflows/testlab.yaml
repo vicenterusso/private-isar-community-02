@@ -5,8 +5,10 @@ jobs:
     name: Firebase Testlab Android
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ vars.FLUTTER_VERSION }}
       - name: Prepare Build
         uses: ./.github/actions/prepare-build
       - name: Build Isar Core arm64
@@ -36,7 +38,7 @@ jobs:
       - name: Run tests
         run: |
           gcloud firebase test android run \
-            --project honeyy \
+            --project isar-community \
             --type instrumentation \
             --timeout 5m \
             --device model=hammerhead,version=23  \
