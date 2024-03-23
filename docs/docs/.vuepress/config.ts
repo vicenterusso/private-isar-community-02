@@ -46,8 +46,8 @@ export default defineUserConfig({
     base: '/v3/',
     theme: defaultTheme({
         logo: "/isar.svg",
-        repo: "isar/isar",
-        docsRepo: "isar/isar",
+        repo: "isar-community/isar",
+        docsRepo: "isar-community/isar",
         docsDir: "docs/docs",
         contributors: true,
         locales: themeLocales,
@@ -69,7 +69,7 @@ export default defineUserConfig({
                 children: [
                     {
                         text: "v4.x",
-                        link: "https://isar-community.dev/",
+                        link: "https://isar-community.dev",
                     },
                     {
                         text: "v3.x",
