@@ -65,7 +65,7 @@ export default defineUserConfig({
                 link: "https://t.me/isardb",
             },
             {
-                text: "3.x",
+                text: "vx.x",
                 children: [
                     {
                         text: "v4.x",
