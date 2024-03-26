@@ -14,8 +14,8 @@ environment:
 
 dependencies:
   ffi: ">=2.0.0 <3.0.0"
-  isar_test:
-    path: ../isar_test
+  #isar_test:
+  #  path: ../isar_test
   js: ^0.6.4
   meta: ^1.7.0
 
