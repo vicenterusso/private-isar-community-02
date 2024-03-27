@@ -14,8 +14,6 @@ dependencies:
   dart_style: ^2.2.3
   dartx: ^1.1.0
   glob: ^2.0.2
-  #isar:
-  #  path: ../isar
   isar: 
     version: 3.1.4
     hosted: https://isar-community.dev
