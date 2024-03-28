@@ -12,11 +12,13 @@ dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
-  intl: 0.18.0
-  isar:
-    path: ../isar
-  isar_flutter_libs:
-    path: ../isar_flutter_libs
+  intl: ^0.19.0
+  isar: 
+    version: any
+    hosted: https://isar-community.dev
+  isar_flutter_libs: 
+    version: any
+    hosted: https://isar-community.dev
   json_annotation: ^4.7.0
   meta: ^1.8.0
   path: ^1.8.2
@@ -28,7 +30,16 @@ dev_dependencies:
   build_runner: any
   flutter_test:
     sdk: flutter
-  isar_generator:
-    path: ../isar_generator
+  isar_generator: 
+    version: any
+    hosted: https://isar-community.dev
   json_serializable: ^6.3.1
   very_good_analysis: ^3.0.1
+
+dependency_overrides:
+  isar:
+    path: ../isar
+  isar_flutter_libs:
+    path: ../isar_flutter_libs
+  isar_generator:
+    path: ../isar_generator
