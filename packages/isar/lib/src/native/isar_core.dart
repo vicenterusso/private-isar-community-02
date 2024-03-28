@@ -37,8 +37,7 @@ const nullBool = IsarObject_NULL_BOOL;
 const falseBool = IsarObject_FALSE_BOOL;
 const trueBool = IsarObject_TRUE_BOOL;
 
-const String _githubUrl =
-    'https://github.com/isar-community/isar/releases/download';
+const String _githubUrl = 'https://isar-community.dev/releases';
 
 bool _isarInitialized = false;
 
