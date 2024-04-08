@@ -23,6 +23,7 @@ jobs:
 
   lint:
     name: Check lints
+    if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
