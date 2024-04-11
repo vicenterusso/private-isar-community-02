@@ -51,8 +51,8 @@ Apri una nuova istanza Isar e passa tutti i tuoi schemi di raccolte. Facoltativa
 
 ```dart
 final dir = await getApplicationDocumentsDirectory();
-final isar = await Isar.open(
-  [UserSchema],
+final isar = await Isar.openAsync(
+  schemas: [UserSchema],
   directory: dir.path,
 );
 ```

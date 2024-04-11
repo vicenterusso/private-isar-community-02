@@ -51,8 +51,8 @@ Abra uma nova instância Isar e passe todos os seus esquemas de coleção. Opcio
 
 ```dart
 final dir = await getApplicationDocumentsDirectory();
-final isar = await Isar.open(
-  [UserSchema],
+final isar = await Isar.openAsync(
+  schemas: [UserSchema],
   directory: dir.path,
 );
 ```

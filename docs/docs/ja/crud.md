@@ -14,7 +14,7 @@ Isarインスタンスで使用したいすべてのスキーマを指定しま�
 
 ```dart
 final dir = await getApplicationDocumentsDirectory();
-final isar = await Isar.open(
+final isar = await Isar.openAsync(
   [ContactSchema],
   directory: dir.path,
 );

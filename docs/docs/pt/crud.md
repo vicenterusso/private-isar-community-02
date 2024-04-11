@@ -14,8 +14,8 @@ Forneça todos os esquemas que deseja usar com a instância Isar. Se você abrir
 
 ```dart
 final dir = await getApplicationDocumentsDirectory();
-final isar = await Isar.open(
-  [RecipeSchema],
+final isar = await Isar.openAsync(
+  schemas: [RecipeSchema],
   directory: dir.path,
 );
 ```
