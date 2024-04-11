@@ -21,11 +21,13 @@ dart pub add isar:^0.0.0-placeholder isar_flutter_libs:^0.0.0-placeholder --host
 Annotez vos classes de collection avec `@collection` et choisissez un champ `Id`.
 
 ```dart
+import 'package:isar/isar.dart';
+
 part 'user.g.dart';
 
 @collection
 class User {
-  Id id = Isar.autoIncrement; // Vous pouvez aussi utiliser id = null pour l'auto incrémentation
+  late int id;
 
   String? name;
 

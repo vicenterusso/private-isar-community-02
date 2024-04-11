@@ -21,11 +21,13 @@ dart pub add isar:^0.0.0-placeholder isar_flutter_libs:^0.0.0-placeholder --host
 컬렉션 클래스에 `@collection` 으로 주석을 달고 `Id` 필드를 선택합니다.
 
 ```dart
-part 'email.g.dart';
+import 'package:isar/isar.dart';
+
+part 'user.g.dart';
 
 @collection
 class User {
-  Id id = Isar.autoIncrement; // id = null 을 사용해도 자동 증분할 수 있습니다.
+  late int id;
 
   String? name;
 

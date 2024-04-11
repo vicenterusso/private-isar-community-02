@@ -22,11 +22,13 @@ dart pub add isar:^0.0.0-placeholder isar_flutter_libs:^0.0.0-placeholder --host
 あなたの使用するコレクションクラスに `@collection` でアノテーションを付け、`Id` フィールドを設定します。
 
 ```dart
+import 'package:isar/isar.dart';
+
 part 'user.g.dart';
 
 @collection
 class User {
-  Id id = Isar.autoIncrement; // id = nullでも自動インクリメントされます。
+  late int id;
 
   String? name;
 

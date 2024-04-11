@@ -21,6 +21,8 @@ dart pub add isar:^0.0.0-placeholder isar_flutter_libs:^0.0.0-placeholder --host
 Annotiere deine Collection-Klassen mit `@collection` und wähle ein `Id`-Feld.
 
 ```dart
+import 'package:isar/isar.dart';
+
 part 'user.g.dart';
 
 @collection

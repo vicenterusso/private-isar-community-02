@@ -21,11 +21,13 @@ dart pub add isar:^0.0.0-placeholder isar_flutter_libs:^0.0.0-placeholder --host
 用 `@collection` 给你的 Collection 类添加注解，并指定一个 `Id` 字段。
 
 ```dart
+import 'package:isar/isar.dart';
+
 part 'user.g.dart';
 
 @collection
 class User {
-  Id id = Isar.autoIncrement; // 你也可以用 id = null 来表示 id 是自增的
+  late int id;
 
   String? name;
 

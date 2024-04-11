@@ -19,13 +19,16 @@ dart pub add isar:^0.0.0-placeholder isar_flutter_libs:^0.0.0-placeholder --host
 اپنی کلیکشن کلاسز کو "کلیکشن@" کے ساتھ تشریح کریں اورایک "آئی ڈی@" فیلڈ کا انتخاب کریں۔
 
 ```dart
+import 'package:isar/isar.dart';
+
 part 'user.g.dart';
 
 @collection
 class User {
-  Id id = Isar.autoIncrement;  // you can also use id = null to auto increment
+  late int id;
 
   String? name;
+
   int? age;
 }
 ```
