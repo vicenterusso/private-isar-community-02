@@ -65,24 +65,18 @@ class Recipe {
 final recipes = isar.recipes;
 ```
 
-簡単ですよね？ コレクションアクセサを使いたくない場合は、`collection()` メソッドを使うこともできます:
-
-```dart
-final recipes = isar.collection<Recipe>();
-```
-
 ### idを用いたオブジェクトの取得
 
 まだコレクションにデータはありませんが、あるものと仮定して、 `123` という ID の架空のオブジェクトを取得してみましょう。
 
 ```dart
-final recipe = await recipes.get(123);
+final recipe = await isar.recipes.getAsync(123);
 ```
 
-`get()` はオブジェクトを含む `Future` を返しますが、オブジェクトが存在しない場合は `null` を返します。 Isar のすべての操作はデフォルトでは非同期ですが、ほとんどの操作には同期処理も対応しています:
+`getAsync()` はオブジェクトを含む `Future` を返しますが、オブジェクトが存在しない場合は `null` を返します。 Isar のすべての操作はデフォルトでは非同期ですが、ほとんどの操作には同期処理も対応しています:
 
 ```dart
-final recipe = recipes.getSync(123);
+final recipe = recipes.get(123);
 ```
 
 :::warning

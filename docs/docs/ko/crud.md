@@ -66,24 +66,18 @@ class Recipe {
 final recipes = isar.recipes;
 ```
 
-너무 쉽죠! 컬렉션 접근자를 사용하기 싫다면, `collection()` 메서드를 사용해도 됩니다.
-
-```dart
-final recipes = isar.collection<Recipe>();
-```
-
 ### 객체 얻기 (id를 이용)
 
 아직 컬렉션에 데이터가 들어있지 않지만, 아이디 `123` 의 가상의 객체가 있다고 가정하고 가져오겠습니다.
 
 ```dart
-final recipe = await isar.recipes.get(123);
+final recipe = await isar.recipes.getAsync(123);
 ```
 
-`get()` 은 객체를 `Future` 로 반환하고, 해당 객체가 존재하지 않는 경우에는 `null` 을 반환합니다. 모든 Isar 작업들은 기본적으로 비동기적으로 작동합니다. 대부분의 경우는 동기적인 방법도 가지고 있습니다.
+`getAsync()` 은 객체를 `Future` 로 반환하고, 해당 객체가 존재하지 않는 경우에는 `null` 을 반환합니다. 모든 Isar 작업들은 기본적으로 비동기적으로 작동합니다. 대부분의 경우는 동기적인 방법도 가지고 있습니다.
 
 ```dart
-final recipe = isar.recipes.getSync(123);
+final recipe = isar.recipes.get(123);
 ```
 
 :::warning

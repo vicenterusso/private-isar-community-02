@@ -66,24 +66,18 @@ All your collections live in the Isar instance. You can get the recipes collecti
 final recipes = isar.recipes;
 ```
 
-That was easy! If you don't want to use collection accessors, you can also use the `collection()` method:
-
-```dart
-final recipes = isar.collection<Recipe>();
-```
-
 ### Get an object (by id)
 
 We don't have data in the collection yet but let's pretend we do so we can get an imaginary object by the id `123`
 
 ```dart
-final recipe = await isar.recipes.get(123);
+final recipe = await isar.recipes.getAsync(123);
 ```
 
-`get()` returns a `Future` with either the object or `null` if it does not exist. All Isar operations are asynchronous by default, and most of them have a synchronous counterpart:
+`getAsync()` returns a `Future` with either the object or `null` if it does not exist. All Isar operations are asynchronous by default, and most of them have a synchronous counterpart:
 
 ```dart
-final recipe = isar.recipes.getSync(123);
+final recipe = isar.recipes.get(123);
 ```
 
 :::warning

@@ -65,24 +65,18 @@ Todas tus colecciones viven en la instancia Isar. Puedes obtener tu colección R
 final recipes = isar.recipes;
 ```
 
-Eso fue fácil! Si no quieres usar los accesores de la colección, puedes usar el método `collection()`:
-
-```dart
-final recipes = isar.collection<Recipe>();
-```
-
 ### Obtener un objeto (por su id)
 
 Todavía no tenemos datos en la colección, pero pretendamos que tenemos así podemos obtener un objeto imaginario dado su id `123`
 
 ```dart
-final recipe = await recipes.get(123);
+final recipe = await isar.recipes.getAsync(123);
 ```
 
-`get()` retorna un `Future` con el objeto o `null` si éste no existe. Por defecto todas las operaciones Isar son asíncronas, y la mayoría de ellas tienen su versión síncrona:
+`getAsync()` retorna un `Future` con el objeto o `null` si éste no existe. Por defecto todas las operaciones Isar son asíncronas, y la mayoría de ellas tienen su versión síncrona:
 
 ```dart
-final recipe = recipes.getSync(123);
+final recipe = recipes.get(123);
 ```
 
 :::warning

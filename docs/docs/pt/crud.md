@@ -65,24 +65,18 @@ Todas as suas coleções residem na instância Isar. Você pode obter a coleçã
 final recipes = isar.recipes;
 ```
 
-Essa foi fácil! Se você não quiser usar acessadores de coleção, você também pode usar o método `collection()`:
-
-```dart
-final recipes = isar.collection<Recipe>();
-```
-
 ### Obter um objeto (por id)
 
 Ainda não temos dados na coleção, mas vamos fingir que temos para que possamos obter um objeto imaginário pelo id `123`
 
 ```dart
-final recipe = await isar.recipes.get(123);
+final recipe = await isar.recipes.getAsync(123);
 ```
 
-`get()` retorna um `Future` com o objeto ou `null` se não existir. Todas as operações Isar são assíncronas por padrão e a maioria delas tem uma contrapartida síncrona:
+`getAsync()` retorna um `Future` com o objeto ou `null` se não existir. Todas as operações Isar são assíncronas por padrão e a maioria delas tem uma contrapartida síncrona:
 
 ```dart
-final recipe = isar.recipes.getSync(123);
+final recipe = isar.recipes.get(123);
 ```
 
 :::warning
