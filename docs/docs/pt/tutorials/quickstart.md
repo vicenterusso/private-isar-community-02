@@ -62,18 +62,22 @@ Depois que sua instância estiver aberta, você poderá começar a usar as cole�
 Todas as operações básicas de CRUD estão disponíveis via `IsarCollection`.
 
 ```dart
-final newUser = User()..name = 'Jane Doe'..age = 36;
+final newUser = User()
+  ..id = isar!.users.autoIncrement()
+  ..name = 'Jane Doe'
+  ..age = 36;
 
-await isar.writeAsync((isar) async {
-  newUser.id = isar.users.autoIncrement();
-  await isar.users.put(newUser); // inserir & atualizar
+await isar!.writeAsync((isar) {
+  return isar.users.put(newUser); // inserir & atualizar
 });
 
-final existingUser = await isar.users.get(newUser.id); // get
+final existingUser = isar!.users.get(newUser.id); // ler
 
-await isar.writeAsync((isar) async {
-  await isar.users.delete(existingUser.id!); // delete
-});
+if (existingUser != null) {
+  await isar!.writeAsync((isar) {
+    return isar.users.delete(existingUser.id); // apagar
+  });
+}
 ```
 
 ## Outros recursos

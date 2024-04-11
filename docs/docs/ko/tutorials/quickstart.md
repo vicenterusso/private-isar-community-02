@@ -62,18 +62,22 @@ final isar = await Isar.open(
 모든 기본적인 CRUD 작업은 `IsarCollection` 을 통해서 이루어집니다.
 
 ```dart
-final newUser = User()..name = 'Jane Doe'..age = 36;
+final newUser = User()
+  ..id = isar!.users.autoIncrement()
+  ..name = 'Jane Doe'
+  ..age = 36;
 
-await isar.writeAsync((isar) async {
-  newUser.id = isar.users.autoIncrement();
-  await isar.users.put(newUser); // 삽입 & 업데이트
+await isar!.writeAsync((isar) {
+  return isar.users.put(newUser); // 삽입 & 업데이트
 });
 
-final existingUser = await isar.users.get(newUser.id); // 가져오기
+final existingUser = isar!.users.get(newUser.id); // 가져오기
 
-await isar.writeAsync((isar) async {
-  await isar.users.delete(existingUser.id!); // 삭제
-});
+if (existingUser != null) {
+  await isar!.writeAsync((isar) {
+    return isar.users.delete(existingUser.id); // 삭제
+  });
+}
 ```
 
 ## 다른 자료들

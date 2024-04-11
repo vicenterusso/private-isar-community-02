@@ -62,18 +62,22 @@ Une fois que votre instance est ouverte, vous pouvez commencer à utiliser les c
 Toutes les opérations CRUD de base sont disponibles via `IsarCollection`.
 
 ```dart
-final newUser = User()..name = 'Jane Doe'..age = 36;
+final newUser = User()
+  ..id = isar!.users.autoIncrement()
+  ..name = 'Jane Doe'
+  ..age = 36;
 
-await isar.writeAsync((isar) async {
-  newUser.id = isar.users.autoIncrement();
-  await isar.users.put(newUser); // Insertion & modification
+await isar!.writeAsync((isar) {
+  return isar.users.put(newUser); // Insertion & modification
 });
 
-final existingUser = await isar.users.get(newUser.id); // Obtention
+final existingUser = isar!.users.get(newUser.id); // Obtention
 
-await isar.writeAsync((isar) async {
-  await isar.users.delete(existingUser.id!); // Suppression
-});
+if (existingUser != null) {
+  await isar!.writeAsync((isar) {
+    return isar.users.delete(existingUser.id); // Suppression
+  });
+}
 ```
 
 ## Autre ressources

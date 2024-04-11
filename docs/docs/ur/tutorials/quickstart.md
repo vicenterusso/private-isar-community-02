@@ -60,20 +60,22 @@ final isar = await Isar.open(
 
 
 ```dart
-final newUser = User()..name = 'Jane Doe'..age = 36;
+final newUser = User()
+  ..id = isar!.users.autoIncrement()
+  ..name = 'Jane Doe'
+  ..age = 36;
 
-await isar.writeAsync((isar) async {
-  newUser.id = isar.users.autoIncrement();
-  await isar.users.put(newUser);
-  داخل کریں اور تروتازہ کریں۔//
+await isar!.writeAsync((isar) {
+  return isar.users.put(newUser); // insert & update
 });
 
-final existingUser = await isar.users.get(newUser.id);
- حاصل کریں۔//
-await isar.writeAsync((isar) async {
-  await isar.users.delete(existingUser.id!);
-  حذف کریں//
-});
+final existingUser = isar!.users.get(newUser.id); // get
+
+if (existingUser != null) {
+  await isar!.writeAsync((isar) {
+    return isar.users.delete(existingUser.id); // delete
+  });
+}
 ```
 
 ## دیگر وسائل

@@ -64,18 +64,22 @@ Once your instance is open, you can start using the collections.
 All basic CRUD operations are available via the `IsarCollection`.
 
 ```dart
-final newUser = User()..name = 'Jane Doe'..age = 36;
+final newUser = User()
+  ..id = isar!.users.autoIncrement()
+  ..name = 'Jane Doe'
+  ..age = 36;
 
-await isar.writeAsync((isar) async {
-  newUser.id = isar.users.autoIncrement();
-  await isar.users.put(newUser); // insert & update
+await isar!.writeAsync((isar) {
+  return isar.users.put(newUser); // insert & update
 });
 
-final existingUser = await isar.users.get(newUser.id); // get
+final existingUser = isar!.users.get(newUser.id); // get
 
-await isar.writeAsync((isar) async {
-  await isar.users.delete(existingUser.id!); // delete
-});
+if (existingUser != null) {
+  await isar!.writeAsync((isar) {
+    return isar.users.delete(existingUser.id); // delete
+  });
+}
 ```
 
 ## Other resources

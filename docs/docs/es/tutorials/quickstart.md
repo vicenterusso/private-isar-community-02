@@ -62,18 +62,22 @@ Una vez que tu base de datos está abierta, puedes comenzar a usar tus coleccion
 Todas las operaciones CRUD básicas están disponibles a través del `IsarCollection`.
 
 ```dart
-final newUser = User()..name = 'Jane Doe'..age = 36;
+final newUser = User()
+  ..id = isar!.users.autoIncrement()
+  ..name = 'Jane Doe'
+  ..age = 36;
 
-await isar.writeAsync((isar) async {
-  newUser.id = isar.users.autoIncrement();
-  await isar.users.put(newUser); // insert & update
+await isar!.writeAsync((isar) {
+  return isar.users.put(newUser); // insert & update
 });
 
-final existingUser = await isar.users.get(newUser.id); // get
+final existingUser = isar!.users.get(newUser.id); // get
 
-await isar.writeAsync((isar) async {
-  await isar.users.delete(existingUser.id!); // delete
-});
+if (existingUser != null) {
+  await isar!.writeAsync((isar) {
+    return isar.users.delete(existingUser.id); // delete
+  });
+}
 ```
 
 ## Otros recursos
