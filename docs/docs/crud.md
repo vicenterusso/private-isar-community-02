@@ -102,7 +102,7 @@ final favorites = await isar.recipes.filter()
   .findAll();
 ```
 
-➡️ Learn more: [Queries](queries)
+➡️ Learn more: [Queries](queries.md)
 
 ## Modifying the database
 
@@ -119,7 +119,7 @@ await isar.writeAsync((isar) async {
 });
 ```
 
-➡️ Learn more: [Transactions](transactions)
+➡️ Learn more: [Transactions](transactions.md)
 
 ### Insert object
 
