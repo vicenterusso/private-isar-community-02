@@ -86,7 +86,7 @@ En tus isolate de UI, por defecto deberías usar los métodos en su versión as�
 Si quieres obtener múltiples objetos de una vez, utiliza `getAll()` o `getAllSync()`:
 
 ```dart
-final recipe = await recipes.getAll([1, 2]);
+final recipe = await isar.recipes.getAll([1, 2]);
 ```
 
 ### Consulta de objectos
@@ -94,9 +94,9 @@ final recipe = await recipes.getAll([1, 2]);
 En lugar de obtener objetos por su id, puedes también consultar una lista objetos que coincidan con ciertas condiciones usando `.where()` y `.filter()`:
 
 ```dart
-final allRecipes = await recipes.where().findAll();
+final allRecipes = await isar.recipes.where().findAll();
 
-final favouires = await recipes.filter()
+final favouires = await isar.recipes.filter()
   .isFavoriteEqualTo(true)
   .findAll();
 ```
@@ -109,12 +109,12 @@ Finalmente es momento de modificar los datos en nuestra colección! Para crear, 
 
 ```dart
 await isar.writeAsync((isar) async {
-  final recipe = await recipes.get(123)
+  final recipe = await isar.recipes.getAsync(123)
 
   recipe.isFavorite = false;
-  await recipes.put(recipe); // perform update operations
+  await isar.recipes.put(recipe); // perform update operations
 
-  await recipes.delete(123); // or delete operations
+  await isar.recipes.delete(123); // or delete operations
 });
 ```
 
@@ -134,7 +134,7 @@ final pancakes = Recipe()
   ..isFavorite = true;
 
 await isar.writeAsync((isar) async {
-  await recipes.put(pancakes);
+  await isar.recipes.put(pancakes);
 })
 ```
 
@@ -144,7 +144,7 @@ Insertar múltiples objetos de una sola vez es muy fácil:
 
 ```dart
 await isar.writeAsync((isar) async {
-  await recipes.putAll([pancakes, pizza]);
+  await isar.recipes.putAll([pancakes, pizza]);
 })
 ```
 
@@ -157,7 +157,7 @@ Entonces si queremos quitar los pancakes de los favoritos, podemos hacer los sig
 ```dart
 await isar.writeAsync((isar) async {
   pancakes.isFavorite = false;
-  await recipes.put(recipe);
+  await isar.recipes.put(recipe);
 });
 ```
 
@@ -167,7 +167,7 @@ Quieres eliminar un objeto en Isar? Usa `collection.delete(id)`. El método dele
 
 ```dart
 await isar.writeAsync((isar) async {
-  final success = await recipes.delete(123);
+  final success = await isar.recipes.delete(123);
   print('Recipe deleted: $success');
 });
 ```
@@ -176,7 +176,7 @@ De manera similar a get y put, también existe una operación para eliminar múl
 
 ```dart
 await isar.writeAsync((isar) async {
-  final count = await recipes.deleteAll([1, 2, 3]);
+  final count = await isar.recipes.deleteAll([1, 2, 3]);
   print('We deleted $count recipes');
 });
 ```
@@ -185,7 +185,7 @@ Si no conoces los ids de los objetos que quieres eliminar, puedes utilizar una c
 
 ```dart
 await isar.writeAsync((isar) async {
-  final count = await recipes.filter()
+  final count = await isar.recipes.filter()
     .isFavoriteEqualTo(false)
     .deleteAll();
   print('We deleted $count recipes');

@@ -86,7 +86,7 @@ Per impostazione predefinita, dovresti utilizzare la versione asincrona dei meto
 Se vuoi ottenere più oggetti contemporaneamente, usa `getAll()` o `getAllSync()`:
 
 ```dart
-final recipe = await recipes.getAll([1, 2]);
+final recipe = await isar.recipes.getAll([1, 2]);
 ```
 
 ### Interroga gli oggetti
@@ -94,9 +94,9 @@ final recipe = await recipes.getAll([1, 2]);
 Invece di ottenere oggetti per id puoi anche interrogare un elenco di oggetti che soddisfano determinate condizioni usando `.where()` e `.filter()`:
 
 ```dart
-final allRecipes = await recipes.where().findAll();
+final allRecipes = await isar.recipes.where().findAll();
 
-final favouires = await recipes.filter()
+final favouires = await isar.recipes.filter()
   .isFavoriteEqualTo(true)
   .findAll();
 ```
@@ -109,12 +109,12 @@ final favouires = await recipes.filter()
 
 ```dart
 await isar.writeAsync((isar) async {
-  final recipe = await recipes.get(123)
+  final recipe = await isar.recipes.getAsync(123)
 
   recipe.isFavorite = false;
-  await recipes.put(recipe); // perform update operations
+  await isar.recipes.put(recipe); // perform update operations
 
-  await recipes.delete(123); // or delete operations
+  await isar.recipes.delete(123); // or delete operations
 });
 ```
 
@@ -134,7 +134,7 @@ final pancakes = Recipe()
   ..isFavorite = true;
 
 await isar.writeAsync((isar) async {
-  await recipes.put(pancakes);
+  await isar.recipes.put(pancakes);
 })
 ```
 
@@ -144,7 +144,7 @@ Inserire più oggetti contemporaneamente è altrettanto facile:
 
 ```dart
 await isar.writeAsync((isar) async {
-  await recipes.putAll([pancakes, pizza]);
+  await isar.recipes.putAll([pancakes, pizza]);
 })
 ```
 
@@ -157,7 +157,7 @@ Quindi, se vogliamo eliminare i nostri pancake dai preferiti, possiamo fare quan
 ```dart
 await isar.writeAsync((isar) async {
   pancakes.isFavorite = false;
-  await recipes.put(recipe);
+  await isar.recipes.put(recipe);
 });
 ```
 
@@ -167,7 +167,7 @@ Vuoi sbarazzarti di un oggetto in Isar? Usa `collection.delete(id)`. Il metodo d
 
 ```dart
 await isar.writeAsync((isar) async {
-  final success = await recipes.delete(123);
+  final success = await isar.recipes.delete(123);
   print('Recipe deleted: $success');
 });
 ```
@@ -176,7 +176,7 @@ Allo stesso modo per get e put, esiste anche un'operazione di eliminazione in bl
 
 ```dart
 await isar.writeAsync((isar) async {
-  final count = await recipes.deleteAll([1, 2, 3]);
+  final count = await isar.recipes.deleteAll([1, 2, 3]);
   print('We deleted $count recipes');
 });
 ```
@@ -185,7 +185,7 @@ Se non conosci gli ID degli oggetti che desideri eliminare, puoi utilizzare una 
 
 ```dart
 await isar.writeAsync((isar) async {
-  final count = await recipes.filter()
+  final count = await isar.recipes.filter()
     .isFavoriteEqualTo(false)
     .deleteAll();
   print('We deleted $count recipes');

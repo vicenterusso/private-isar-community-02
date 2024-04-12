@@ -110,7 +110,7 @@ It's finally time to modify our collection! To create, update, or delete objects
 
 ```dart
 await isar.writeAsync((isar) async {
-  final recipe = await isar.recipes.get(123)
+  final recipe = await isar.recipes.getAsync(123)
 
   recipe.isFavorite = false;
   await isar.recipes.put(recipe); // perform update operations

@@ -110,7 +110,7 @@ final favouires = await isar.recipes.filter()
 
 ```dart
 await isar.writeAsync((isar) async {
-  final recipe = await isar.recipes.get(123)
+  final recipe = await isar.recipes.getAsync(123)
 
   recipe.isFavorite = false;
   await isar.recipes.put(recipe); // 갱신 작업을 수행합니다.
