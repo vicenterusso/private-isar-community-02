@@ -37,7 +37,7 @@ const nullBool = IsarObject_NULL_BOOL;
 const falseBool = IsarObject_FALSE_BOOL;
 const trueBool = IsarObject_TRUE_BOOL;
 
-const String _githubUrl = 'https://isar-community.dev/releases';
+const String binariesUrl = 'https://binaries.isar-community.dev';
 
 bool _isarInitialized = false;
 
@@ -137,7 +137,7 @@ Future<void> _downloadIsarCore(String libraryPath) async {
     return;
   }
   final remoteName = Abi.current().remoteName;
-  final uri = Uri.parse('$_githubUrl/${Isar.version}/$remoteName');
+  final uri = Uri.parse('$binariesUrl/${Isar.version}/$remoteName');
   final request = await HttpClient().getUrl(uri);
   final response = await request.close();
   if (response.statusCode != 200) {
