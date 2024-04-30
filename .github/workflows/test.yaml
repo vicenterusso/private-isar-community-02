@@ -60,7 +60,7 @@ jobs:
     name: Dart Test
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [macos-12 ubuntu-latest, windows-latest]
       fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
@@ -160,7 +160,7 @@ jobs:
       - name: Start simulator
         uses: futureware-tech/simulator-action@v3
         with:
-          model: iPhone 13
+          model: iPhone 14
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: ${{ vars.FLUTTER_VERSION_V4 }}
@@ -178,7 +178,7 @@ jobs:
 
   integration_test_android:
     name: Integration Test Android
-    runs-on: macos-latest
+    runs-on: macos-12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v3
@@ -208,7 +208,7 @@ jobs:
 
   integration_test_macos:
     name: Integration Test macOS
-    runs-on: macos-13
+    runs-on: macos-12
     steps:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
@@ -308,7 +308,7 @@ jobs:
 
   integration_test_safari:
     name: Integration Test Safari
-    runs-on: macos-latest
+    runs-on: macos-12
     steps:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
