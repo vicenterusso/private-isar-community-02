@@ -303,7 +303,7 @@ jobs:
         with:
           flutter-version: ${{ vars.FLUTTER_VERSION }}
       - name: Install chromedricer
-        uses: nanasess/setup-chromedriver@v1
+        uses: nanasess/setup-chromedriver@v2
       - name: Prepare chromedricer
         run: chromedriver --port=4444 &
       - name: Run Dart tests in browser
