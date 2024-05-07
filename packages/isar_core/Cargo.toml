@@ -5,7 +5,7 @@ authors = ["Simon Leier <simonleier@gmail.com>"]
 edition = "2021"
 
 [dependencies]
-itertools = "0.10.3"
+itertools = "0.12.1"
 enum_dispatch = "0.3.8"
 ffi = { package = "mdbx-sys", path = "../mdbx_sys" }
 libc = "0.2"
