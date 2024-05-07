@@ -1,6 +1,6 @@
 import 'package:dartx/dartx.dart';
-import 'package:isar/isar.dart';
-import 'package:isar_generator/src/object_info.dart';
+import 'package:isar-community/isar.dart';
+import 'package:isar-community_generator/src/object_info.dart';
 
 class WhereGenerator {
   WhereGenerator(this.object)

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:isar/isar.dart';
+import 'package:isar-community/isar.dart';
 
 class SortButtons extends StatelessWidget {
   const SortButtons({

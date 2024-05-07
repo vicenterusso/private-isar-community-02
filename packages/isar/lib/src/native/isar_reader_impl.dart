@@ -3,8 +3,8 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:isar/isar.dart';
-import 'package:isar/src/native/isar_core.dart';
+import 'package:isar-community/isar.dart';
+import 'package:isar-community/src/native/isar_core.dart';
 import 'package:meta/meta.dart';
 
 /// @nodoc

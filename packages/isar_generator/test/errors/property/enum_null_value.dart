@@ -1,6 +1,6 @@
 // null values are not supported
 
-import 'package:isar/isar.dart';
+import 'package:isar-community/isar.dart';
 
 @collection
 class Model {

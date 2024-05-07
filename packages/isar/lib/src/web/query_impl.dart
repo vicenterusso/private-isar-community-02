@@ -5,11 +5,11 @@ import 'dart:convert';
 import 'dart:js';
 import 'dart:typed_data';
 
-import 'package:isar/isar.dart';
-import 'package:isar/src/web/bindings.dart';
+import 'package:isar-community/isar.dart';
+import 'package:isar-community/src/web/bindings.dart';
 
-import 'package:isar/src/web/isar_collection_impl.dart';
-import 'package:isar/src/web/isar_web.dart';
+import 'package:isar-community/src/web/isar_collection_impl.dart';
+import 'package:isar-community/src/web/isar_web.dart';
 
 typedef QueryDeserialize<T> = T Function(Object);
 

@@ -1,6 +1,6 @@
 // names must not be blank or start with "_"
 
-import 'package:isar/isar.dart';
+import 'package:isar-community/isar.dart';
 
 @collection
 class Model {

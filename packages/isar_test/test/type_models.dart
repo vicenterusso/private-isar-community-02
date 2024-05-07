@@ -1,4 +1,4 @@
-import 'package:isar/isar.dart';
+import 'package:isar-community/isar.dart';
 
 part 'type_models.g.dart';
 

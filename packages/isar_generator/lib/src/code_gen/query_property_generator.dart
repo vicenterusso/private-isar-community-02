@@ -1,4 +1,4 @@
-import 'package:isar_generator/src/object_info.dart';
+import 'package:isar-community_generator/src/object_info.dart';
 
 String generatePropertyQuery(ObjectInfo oi) {
   var code = '''

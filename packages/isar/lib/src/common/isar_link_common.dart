@@ -1,5 +1,5 @@
-import 'package:isar/isar.dart';
-import 'package:isar/src/common/isar_link_base_impl.dart';
+import 'package:isar-community/isar.dart';
+import 'package:isar-community/src/common/isar_link_base_impl.dart';
 
 const bool _kIsWeb = identical(0, 0.0);
 

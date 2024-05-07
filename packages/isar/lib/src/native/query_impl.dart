@@ -5,12 +5,12 @@ import 'dart:ffi';
 import 'dart:isolate';
 import 'dart:typed_data';
 
-import 'package:isar/isar.dart';
-import 'package:isar/src/native/bindings.dart';
-import 'package:isar/src/native/encode_string.dart';
-import 'package:isar/src/native/isar_collection_impl.dart';
-import 'package:isar/src/native/isar_core.dart';
-import 'package:isar/src/native/txn.dart';
+import 'package:isar-community/isar.dart';
+import 'package:isar-community/src/native/bindings.dart';
+import 'package:isar-community/src/native/encode_string.dart';
+import 'package:isar-community/src/native/isar_collection_impl.dart';
+import 'package:isar-community/src/native/isar_core.dart';
+import 'package:isar-community/src/native/txn.dart';
 
 typedef QueryDeserialize<T> = List<T> Function(CObjectSet);
 

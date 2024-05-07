@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:isar/isar.dart';
+import 'package:isar-community/isar.dart';
 import 'package:isar_inspector/connect_client.dart';
 import 'package:isar_inspector/connected_layout.dart';
 import 'package:isar_inspector/error_screen.dart';

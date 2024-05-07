@@ -1,6 +1,6 @@
 // supertype annotated with @collection
 
-import 'package:isar/isar.dart';
+import 'package:isar-community/isar.dart';
 
 @collection
 class Supertype {

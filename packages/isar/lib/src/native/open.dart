@@ -5,13 +5,13 @@ import 'dart:ffi';
 import 'dart:isolate';
 
 import 'package:ffi/ffi.dart';
-import 'package:isar/isar.dart';
-import 'package:isar/src/common/schemas.dart';
-import 'package:isar/src/native/bindings.dart';
-import 'package:isar/src/native/encode_string.dart';
-import 'package:isar/src/native/isar_collection_impl.dart';
-import 'package:isar/src/native/isar_core.dart';
-import 'package:isar/src/native/isar_impl.dart';
+import 'package:isar-community/isar.dart';
+import 'package:isar-community/src/common/schemas.dart';
+import 'package:isar-community/src/native/bindings.dart';
+import 'package:isar-community/src/native/encode_string.dart';
+import 'package:isar-community/src/native/isar_collection_impl.dart';
+import 'package:isar-community/src/native/isar_core.dart';
+import 'package:isar-community/src/native/isar_impl.dart';
 
 final Pointer<Pointer<CIsarInstance>> _isarPtrPtr =
     malloc<Pointer<CIsarInstance>>();

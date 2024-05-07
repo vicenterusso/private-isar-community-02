@@ -2,7 +2,7 @@
 
 import 'dart:async';
 
-import 'package:isar/isar.dart';
+import 'package:isar-community/isar.dart';
 
 const Symbol _zoneTxn = #zoneTxn;
 

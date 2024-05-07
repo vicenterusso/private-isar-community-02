@@ -1,4 +1,4 @@
-import 'package:isar/isar.dart';
+import 'package:isar-community/isar.dart';
 
 void main(List<String> args) {
   if (Isar.version != args[0]) {

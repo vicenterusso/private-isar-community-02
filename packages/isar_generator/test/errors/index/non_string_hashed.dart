@@ -1,6 +1,6 @@
 // only strings and lists may be hashed
 
-import 'package:isar/isar.dart';
+import 'package:isar-community/isar.dart';
 
 @collection
 class Model {

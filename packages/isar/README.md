@@ -1,7 +1,7 @@
 > ⚠️ This repository is a fork of the [original project](https://github.com/isar/isar), focusing primarily on bug fixes and small updates for version 3. Our objective is to enhance the stability and reliability of the codebase while implementing minor improvements to refine the user experience. See details below on how to use this community fork.
 
 <p align="center">
-  <a href="https://isar.dev">
+  <a href="https://isar-community.dev">
     <img src="https://raw.githubusercontent.com/isar/isar/main/.github/assets/isar.svg?sanitize=true" height="128">
   </a>
   <h1 align="center">Isar Database</h1>
@@ -26,8 +26,8 @@
 </p>
 
 <p align="center">
-  <a href="https://isar.dev">Quickstart</a> •
-  <a href="https://isar.dev/schema">Documentation</a> •
+  <a href="https://isar-community.dev">Quickstart</a> •
+  <a href="https://isar-community.dev/schema">Documentation</a> •
   <a href="https://github.com/isar-community/isar/tree/main/examples/">Sample Apps</a> •
   <a href="https://github.com/isar-community/isar/discussions">Support & Ideas</a> •
   <a href="https://pub.dev/packages/isar">Pub.dev</a>
@@ -70,15 +70,12 @@ isar_version: &isar_version 3.1.7 # define the version to be used
 dependencies:
   isar: 
     version: *isar_version
-    hosted: https://pub.isar-community.dev/
   isar_flutter_libs: # contains Isar Core
     version: *isar_version
-    hosted: https://pub.isar-community.dev/
 
 dev_dependencies:
   isar_generator: 
     version: *isar_version
-    hosted: https://pub.isar-community.dev/
   build_runner: any
 
 ```

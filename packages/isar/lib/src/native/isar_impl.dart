@@ -5,11 +5,11 @@ import 'dart:ffi';
 import 'dart:isolate';
 
 import 'package:ffi/ffi.dart';
-import 'package:isar/src/common/isar_common.dart';
-import 'package:isar/src/native/bindings.dart';
-import 'package:isar/src/native/encode_string.dart';
-import 'package:isar/src/native/isar_core.dart';
-import 'package:isar/src/native/txn.dart';
+import 'package:isar-community/src/common/isar_common.dart';
+import 'package:isar-community/src/native/bindings.dart';
+import 'package:isar-community/src/native/encode_string.dart';
+import 'package:isar-community/src/native/isar_core.dart';
+import 'package:isar-community/src/native/txn.dart';
 
 class IsarImpl extends IsarCommon implements Finalizable {
   IsarImpl(super.name, this.ptr) {

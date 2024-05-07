@@ -1,5 +1,5 @@
 import 'package:dartx/dartx.dart';
-import 'package:isar_generator/src/object_info.dart';
+import 'package:isar-community_generator/src/object_info.dart';
 
 String generateByIndexExtension(ObjectInfo oi) {
   final uniqueIndexes = oi.indexes.where((e) => e.unique).toList();

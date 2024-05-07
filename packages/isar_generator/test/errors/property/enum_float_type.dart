@@ -1,6 +1,6 @@
 // unsupported enum property type
 
-import 'package:isar/isar.dart';
+import 'package:isar-community/isar.dart';
 
 @collection
 class Model {
