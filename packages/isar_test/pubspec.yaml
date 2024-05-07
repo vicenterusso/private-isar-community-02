@@ -34,9 +34,12 @@ dev_dependencies:
   very_good_analysis: ^3.0.1
 
 dependency_overrides:
-  isar:
-    path: ../isar
-  isar_flutter_libs:
-    path: ../isar_flutter_libs
-  isar_generator:
-    path: ../isar_generator
+  isar_community:
+    path: ../../packages/isar_community
+  isar_community_flutter_libs:
+    path: ../../packages/isar_community_flutter_libs
+
+
+dev_dependency_overrides:
+  isar_community_generator:
+    path: ../../packages/isar_community_generator

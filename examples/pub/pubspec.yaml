@@ -51,10 +51,15 @@ flutter:
     - assets/pub_logo.svg
     - assets/pub_logo_dark.svg
     - assets/search_bg.svg
+
+
 dependency_overrides:
   isar_community:
     path: ../../packages/isar_community
   isar_community_flutter_libs:
     path: ../../packages/isar_community_flutter_libs
+
+
+dev_dependency_overrides:
   isar_community_generator:
     path: ../../packages/isar_community_generator
