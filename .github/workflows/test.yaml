@@ -43,13 +43,13 @@ jobs:
         with:
           flutter-version: ${{ vars.FLUTTER_VERSION }}
       - run: flutter pub get
-        working-directory: packages/isar
+        working-directory: packages/isar_community
       - run: flutter pub get
-        working-directory: packages/isar_flutter_libs
+        working-directory: packages/isar_community_flutter_libs
       - run: flutter pub get
-        working-directory: packages/isar_generator
+        working-directory: packages/isar_community_generator
       - run: flutter pub get
-        working-directory: packages/isar_inspector
+        working-directory: packages/isar_community_inspector
       - run: flutter pub get
         working-directory: examples/pub
       - run: |
