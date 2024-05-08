@@ -59,7 +59,5 @@ dependency_overrides:
   isar_community_flutter_libs:
     path: ../../packages/isar_community_flutter_libs
 
-
-dev_dependency_overrides:
   isar_community_generator:
     path: ../../packages/isar_community_generator
