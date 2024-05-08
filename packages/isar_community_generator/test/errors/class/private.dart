@@ -1,6 +1,6 @@
 // must be public
 
-import 'package:isar-community/isar.dart';
+import 'package:isar_community/isar.dart';
 
 @collection
 // ignore: unused_element

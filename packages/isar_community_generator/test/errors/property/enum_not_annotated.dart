@@ -1,6 +1,6 @@
 // enum property must be annotated with @enumerated
 
-import 'package:isar-community/isar.dart';
+import 'package:isar_community/isar.dart';
 
 @collection
 class Model {

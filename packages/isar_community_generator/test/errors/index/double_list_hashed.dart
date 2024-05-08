@@ -1,6 +1,6 @@
 // list<double> may must not be hashed
 
-import 'package:isar-community/isar.dart';
+import 'package:isar_community/isar.dart';
 
 @collection
 class Model {

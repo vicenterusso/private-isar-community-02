@@ -2,13 +2,13 @@
 
 import 'dart:ffi';
 
-import 'package:isar-community/isar.dart';
-import 'package:isar-community/src/common/isar_link_base_impl.dart';
-import 'package:isar-community/src/common/isar_link_common.dart';
-import 'package:isar-community/src/common/isar_links_common.dart';
-import 'package:isar-community/src/native/isar_collection_impl.dart';
-import 'package:isar-community/src/native/isar_core.dart';
-import 'package:isar-community/src/native/txn.dart';
+import 'package:isar_community/isar.dart';
+import 'package:isar_community/src/common/isar_link_base_impl.dart';
+import 'package:isar_community/src/common/isar_link_common.dart';
+import 'package:isar_community/src/common/isar_links_common.dart';
+import 'package:isar_community/src/native/isar_collection_impl.dart';
+import 'package:isar_community/src/native/isar_core.dart';
+import 'package:isar_community/src/native/txn.dart';
 
 mixin IsarLinkBaseMixin<OBJ> on IsarLinkBaseImpl<OBJ> {
   @override

@@ -1,6 +1,6 @@
 // last property of a composite index may be a non-hashed string
 
-import 'package:isar-community/isar.dart';
+import 'package:isar_community/isar.dart';
 
 @collection
 class Model {

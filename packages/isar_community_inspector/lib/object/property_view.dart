@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:isar-community/isar.dart';
+import 'package:isar_community/isar.dart';
 import 'package:isar_inspector/object/property_builder.dart';
 import 'package:isar_inspector/object/property_value.dart';
 

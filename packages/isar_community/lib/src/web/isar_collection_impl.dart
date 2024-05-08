@@ -6,13 +6,13 @@ import 'dart:js';
 import 'dart:js_util';
 import 'dart:typed_data';
 
-import 'package:isar-community/isar.dart';
-import 'package:isar-community/src/web/bindings.dart';
-import 'package:isar-community/src/web/isar_impl.dart';
-import 'package:isar-community/src/web/isar_reader_impl.dart';
-import 'package:isar-community/src/web/isar_web.dart';
-import 'package:isar-community/src/web/isar_writer_impl.dart';
-import 'package:isar-community/src/web/query_build.dart';
+import 'package:isar_community/isar.dart';
+import 'package:isar_community/src/web/bindings.dart';
+import 'package:isar_community/src/web/isar_impl.dart';
+import 'package:isar_community/src/web/isar_reader_impl.dart';
+import 'package:isar_community/src/web/isar_web.dart';
+import 'package:isar_community/src/web/isar_writer_impl.dart';
+import 'package:isar_community/src/web/query_build.dart';
 import 'package:meta/dart2js.dart';
 
 class IsarCollectionImpl<OBJ> extends IsarCollection<OBJ> {

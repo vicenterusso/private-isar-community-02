@@ -1,9 +1,9 @@
 import 'dart:ffi';
 
 import 'package:ffi/ffi.dart';
-import 'package:isar-community/src/native/encode_string.dart';
-import 'package:isar-community/src/native/isar_core.dart';
-import 'package:isar-community/src/native/isar_reader_impl.dart';
+import 'package:isar_community/src/native/encode_string.dart';
+import 'package:isar_community/src/native/isar_core.dart';
+import 'package:isar_community/src/native/isar_reader_impl.dart';
 
 // ignore: public_member_api_docs
 List<String> isarSplitWords(String input) {

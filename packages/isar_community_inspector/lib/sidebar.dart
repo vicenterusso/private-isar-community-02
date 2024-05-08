@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:isar-community/isar.dart';
+import 'package:isar_community/isar.dart';
 import 'package:isar_inspector/collections_list.dart';
 import 'package:isar_inspector/connect_client.dart';
 import 'package:isar_inspector/instance_selector.dart';

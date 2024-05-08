@@ -2,12 +2,12 @@
 
 import 'dart:indexed_db';
 
-import 'package:isar-community/isar.dart';
+import 'package:isar_community/isar.dart';
 
-import 'package:isar-community/src/web/bindings.dart';
-import 'package:isar-community/src/web/isar_collection_impl.dart';
-import 'package:isar-community/src/web/isar_web.dart';
-import 'package:isar-community/src/web/query_impl.dart';
+import 'package:isar_community/src/web/bindings.dart';
+import 'package:isar_community/src/web/isar_collection_impl.dart';
+import 'package:isar_community/src/web/isar_web.dart';
+import 'package:isar_community/src/web/query_impl.dart';
 
 Query<T> buildWebQuery<T, OBJ>(
   IsarCollectionImpl<OBJ> col,

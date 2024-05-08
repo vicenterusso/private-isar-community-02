@@ -3,13 +3,13 @@
 import 'dart:html';
 //import 'dart:js_util';
 
-import 'package:isar-community/isar.dart';
-/*import 'package:isar-community/src/common/schemas.dart';
+import 'package:isar_community/isar.dart';
+/*import 'package:isar_community/src/common/schemas.dart';
 
-import 'package:isar-community/src/web/bindings.dart';
-import 'package:isar-community/src/web/isar_collection_impl.dart';
-import 'package:isar-community/src/web/isar_impl.dart';*/
-import 'package:isar-community/src/web/isar_web.dart';
+import 'package:isar_community/src/web/bindings.dart';
+import 'package:isar_community/src/web/isar_collection_impl.dart';
+import 'package:isar_community/src/web/isar_impl.dart';*/
+import 'package:isar_community/src/web/isar_web.dart';
 import 'package:meta/meta.dart';
 
 bool _loaded = false;

@@ -2,7 +2,7 @@
 
 import 'dart:async';
 
-import 'package:isar-community/isar.dart';
+import 'package:isar_community/isar.dart';
 import 'package:meta/meta.dart';
 
 /// @nodoc

@@ -3,9 +3,9 @@
 
 import 'dart:typed_data';
 
-import 'package:isar-community/isar.dart';
-import 'package:isar-community/src/native/encode_string.dart';
-import 'package:isar-community/src/native/isar_core.dart';
+import 'package:isar_community/isar.dart';
+import 'package:isar_community/src/native/encode_string.dart';
+import 'package:isar_community/src/native/isar_core.dart';
 import 'package:meta/meta.dart';
 
 /// @nodoc

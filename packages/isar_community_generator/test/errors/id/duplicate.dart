@@ -1,6 +1,6 @@
 // two or more properties with type "Id" defined
 
-import 'package:isar-community/isar.dart';
+import 'package:isar_community/isar.dart';
 
 @collection
 class Test {

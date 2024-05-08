@@ -3,10 +3,10 @@
 import 'dart:async';
 import 'dart:html';
 
-import 'package:isar-community/isar.dart';
+import 'package:isar_community/isar.dart';
 
-import 'package:isar-community/src/web/bindings.dart';
-import 'package:isar-community/src/web/isar_web.dart';
+import 'package:isar_community/src/web/bindings.dart';
+import 'package:isar_community/src/web/isar_web.dart';
 
 const Symbol _zoneTxn = #zoneTxn;
 

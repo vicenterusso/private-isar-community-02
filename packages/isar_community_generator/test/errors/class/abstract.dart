@@ -1,6 +1,6 @@
 // must not be abstract
 
-import 'package:isar-community/isar.dart';
+import 'package:isar_community/isar.dart';
 
 @collection
 abstract class Model {

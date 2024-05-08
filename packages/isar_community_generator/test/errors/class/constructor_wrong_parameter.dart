@@ -1,6 +1,6 @@
 // constructor parameter type does not match property type
 
-import 'package:isar-community/isar.dart';
+import 'package:isar_community/isar.dart';
 
 @collection
 class Model {
