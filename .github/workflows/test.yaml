@@ -64,7 +64,7 @@ jobs:
     name: Dart Test
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [macos-lates, windows-latestl, ubuntu-latest]
       fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
@@ -149,150 +149,150 @@ jobs:
   #       with:
   #         files: packages/isar/lcov_isar_test.info
 
-  # test_generator:
-  #   name: Generator Test
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: subosito/flutter-action@v2
-  #       with:
-  #         flutter-version: ${{ vars.FLUTTER_VERSION }}
-  #     - name: Run Generator Unit tests
-  #       run: |
-  #         dart pub get
-  #         dart test
-  #       working-directory: packages/isar_generator
+  test_generator:
+    name: Generator Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ vars.FLUTTER_VERSION }}
+      - name: Run Generator Unit tests
+        run: |
+          dart pub get
+          dart test
+        working-directory: packages/isar_community_generator
 
-  # integration_test_ios:
-  #   name: Integration Test iOS
-  #   runs-on: macos-12
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - name: Start simulator
-  #       uses: futureware-tech/simulator-action@v3
-  #       with:
-  #         model: iPhone 13
-  #     - uses: subosito/flutter-action@v2
-  #       with:
-  #         flutter-version: ${{ vars.FLUTTER_VERSION }}
-  #     - name: Prepare Build
-  #       uses: ./.github/actions/prepare-build
-  #     - name: Build Isar Core
-  #       run: |
-  #         bash tool/build_ios.sh
-  #         unzip isar_ios.xcframework.zip -d packages/isar_flutter_libs/ios
-  #     - name: Prepare Tests
-  #       run: sh tool/prepare_tests.sh
-  #     - name: Run Flutter Integration tests
-  #       run: flutter test integration_test/integration_test.dart --dart-define STRESS=true
-  #       working-directory: packages/isar_test
+  integration_test_ios:
+    name: Integration Test iOS
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Start simulator
+        uses: futureware-tech/simulator-action@v3
+        with:
+          model: iPhone 13
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ vars.FLUTTER_VERSION }}
+      - name: Prepare Build
+        uses: ./.github/actions/prepare-build
+      - name: Build Isar Core
+        run: |
+          bash tool/build_ios.sh
+          unzip isar_ios.xcframework.zip -d packages/isar_community_flutter_libs/ios
+      - name: Prepare Tests
+        run: sh tool/prepare_tests.sh
+      - name: Run Flutter Integration tests
+        run: flutter test integration_test/integration_test.dart --dart-define STRESS=true
+        working-directory: packages/isar_test
 
-  # integration_test_android:
-  #   name: Integration Test Android
-  #   runs-on: macos-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: actions/setup-java@v3
-  #       with:
-  #         java-version: "11"
-  #         distribution: "zulu"
-  #     - uses: subosito/flutter-action@v2
-  #       with:
-  #         flutter-version: ${{ vars.FLUTTER_VERSION }}
-  #     - name: Prepare Build
-  #       uses: ./.github/actions/prepare-build
-  #     - name: Build Isar Core
-  #       run: |
-  #         bash tool/build_android.sh x64
-  #         mkdir -p packages/isar_flutter_libs/android/src/main/jniLibs/x86_64
-  #         mv libisar_android_x64.so packages/isar_flutter_libs/android/src/main/jniLibs/x86_64/libisar.so
-  #     - name: Prepare Tests
-  #       run: sh tool/prepare_tests.sh
-  #     - name: Run Flutter Integration tests
-  #       continue-on-error: true
-  #       timeout-minutes: ${{ inputs.timeout_minutes }}
-  #       uses: Wandalen/wretry.action@v1.0.36
-  #       with:
-  #         action: reactivecircus/android-emulator-runner@v2
-  #         with: |
-  #           api-level: 29
-  #           arch: x86_64
-  #           profile: pixel
-  #           working-directory: packages/isar_test
-  #           script: flutter test integration_test/integration_test.dart --dart-define STRESS=true
+  integration_test_android:
+    name: Integration Test Android
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v3
+        with:
+          java-version: "11"
+          distribution: "zulu"
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ vars.FLUTTER_VERSION }}
+      - name: Prepare Build
+        uses: ./.github/actions/prepare-build
+      - name: Build Isar Core
+        run: |
+          bash tool/build_android.sh x64
+          mkdir -p packages/isar_community_flutter_libs/android/src/main/jniLibs/x86_64
+          mv libisar_android_x64.so packages/isar_community_flutter_libs/android/src/main/jniLibs/x86_64/libisar.so
+      - name: Prepare Tests
+        run: sh tool/prepare_tests.sh
+      - name: Run Flutter Integration tests
+        continue-on-error: true
+        timeout-minutes: ${{ inputs.timeout_minutes }}
+        uses: Wandalen/wretry.action@v1.0.36
+        with:
+          action: reactivecircus/android-emulator-runner@v2
+          with: |
+            api-level: 29
+            arch: x86_64
+            profile: pixel
+            working-directory: packages/isar_test
+            script: flutter test integration_test/integration_test.dart --dart-define STRESS=true
 
-  # integration_test_macos:
-  #   name: Integration Test macOS
-  #   runs-on: macos-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: subosito/flutter-action@v2
-  #       with:
-  #         # flutter-version: "3.3.10" # https://github.com/flutter/flutter/issues/118469
-  #         flutter-version: ${{ vars.FLUTTER_VERSION }}
-  #     - name: Prepare Build
-  #       uses: ./.github/actions/prepare-build
-  #     - name: Build Isar Core
-  #       run: |
-  #         bash tool/build_macos.sh
-  #         install_name_tool -id @rpath/libisar.dylib libisar_macos.dylib
-  #         mv libisar_macos.dylib packages/isar_flutter_libs/macos/libisar.dylib
-  #     - name: Prepare Tests
-  #       run: sh tool/prepare_tests.sh
-  #     - name: Run Flutter Driver tests
-  #       run: |
-  #         flutter config --enable-macos-desktop
-  #         flutter test -d macos integration_test/integration_test.dart --dart-define STRESS=true
-  #       working-directory: packages/isar_test
+  integration_test_macos:
+    name: Integration Test macOS
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          # flutter-version: "3.3.10" # https://github.com/flutter/flutter/issues/118469
+          flutter-version: ${{ vars.FLUTTER_VERSION }}
+      - name: Prepare Build
+        uses: ./.github/actions/prepare-build
+      - name: Build Isar Core
+        run: |
+          bash tool/build_macos.sh
+          install_name_tool -id @rpath/libisar.dylib libisar_macos.dylib
+          mv libisar_macos.dylib packages/isar_community_flutter_libs/macos/libisar.dylib
+      - name: Prepare Tests
+        run: sh tool/prepare_tests.sh
+      - name: Run Flutter Driver tests
+        run: |
+          flutter config --enable-macos-desktop
+          flutter test -d macos integration_test/integration_test.dart --dart-define STRESS=true
+        working-directory: packages/isar_test
 
-  # integration_test_linux:
-  #   name: Integration Test Linux
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: subosito/flutter-action@v2
-  #       with:
-  #         flutter-version: ${{ vars.FLUTTER_VERSION }}
-  #     - name: Prepare Build
-  #       uses: ./.github/actions/prepare-build
-  #     - name: Install Linux requirements
-  #       run: sudo apt-get install clang cmake ninja-build pkg-config libgtk-3-dev
-  #     - name: Setup headless display
-  #       uses: pyvista/setup-headless-display-action@v1
-  #     - name: Build Isar Core
-  #       run: |
-  #         bash tool/build_linux.sh x64
-  #         mv libisar_linux_x64.so packages/isar_flutter_libs/linux/libisar.so
-  #     - name: Prepare Tests
-  #       run: sh tool/prepare_tests.sh
-  #     - name: Run Flutter Driver tests
-  #       run: |
-  #         flutter config --enable-linux-desktop
-  #         flutter test -d linux integration_test/integration_test.dart --dart-define STRESS=true
-  #       working-directory: packages/isar_test
+  integration_test_linux:
+    name: Integration Test Linux
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ vars.FLUTTER_VERSION }}
+      - name: Prepare Build
+        uses: ./.github/actions/prepare-build
+      - name: Install Linux requirements
+        run: sudo apt-get install clang cmake ninja-build pkg-config libgtk-3-dev
+      - name: Setup headless display
+        uses: pyvista/setup-headless-display-action@v1
+      - name: Build Isar Core
+        run: |
+          bash tool/build_linux.sh x64
+          mv libisar_linux_x64.so packages/isar_community_flutter_libs/linux/libisar.so
+      - name: Prepare Tests
+        run: sh tool/prepare_tests.sh
+      - name: Run Flutter Driver tests
+        run: |
+          flutter config --enable-linux-desktop
+          flutter test -d linux integration_test/integration_test.dart --dart-define STRESS=true
+        working-directory: packages/isar_test
 
-  # integration_test_windows:
-  #   name: Integration Test Windows
-  #   runs-on: windows-2019
-  #   if: ${{ false }}
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: subosito/flutter-action@v2
-  #       with:
-  #         flutter-version: ${{ vars.FLUTTER_VERSION }}
-  #     - name: Prepare Build
-  #       uses: ./.github/actions/prepare-build
-  #     - name: Build Isar Core
-  #       run: |
-  #         bash tool/build_windows.sh x64
-  #         mv isar_windows_x64.dll packages/isar_flutter_libs/windows/libisar.dll
-  #     - name: Prepare Tests
-  #       run: sh tool/prepare_tests.sh
-  #     - name: Run Flutter Driver tests
-  #       run: |
-  #         flutter config --enable-windows-desktop
-  #         flutter test -d windows integration_test/integration_test.dart --dart-define STRESS=true
-  #       working-directory: packages/isar_test
+  integration_test_windows:
+    name: Integration Test Windows
+    runs-on: windows-2019
+    if: ${{ false }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ vars.FLUTTER_VERSION }}
+      - name: Prepare Build
+        uses: ./.github/actions/prepare-build
+      - name: Build Isar Core
+        run: |
+          bash tool/build_windows.sh x64
+          mv isar_windows_x64.dll packages/isar_community_flutter_libs/windows/libisar.dll
+      - name: Prepare Tests
+        run: sh tool/prepare_tests.sh
+      - name: Run Flutter Driver tests
+        run: |
+          flutter config --enable-windows-desktop
+          flutter test -d windows integration_test/integration_test.dart --dart-define STRESS=true
+        working-directory: packages/isar_test
 
   # drive_chrome:
   #   runs-on: ubuntu-latest
