@@ -1,7 +1,7 @@
 import 'package:dartx/dartx.dart';
 import 'package:isar-community/isar.dart';
-import 'package:isar-community_generator/src/isar_type.dart';
-import 'package:isar-community_generator/src/object_info.dart';
+import 'package:isar_community_generator/src/isar_type.dart';
+import 'package:isar_community_generator/src/object_info.dart';
 
 String generateDistinctBy(ObjectInfo oi) {
   var code = '''
